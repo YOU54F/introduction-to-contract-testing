@@ -1,0 +1,39 @@
+linux_arm_task:
+  arm_container:
+    image: maven:3-eclipse-temurin-17
+  order_consumer_test_script: |
+    cd order-consumer
+    mvn test
+  customer_consumer_test_script: |
+    cd customer-consumer
+    mvn test
+  address_provider_test_script: |
+    cd address-provider
+    mvn test
+linux_amd_task:
+  container:
+    image: maven:3-eclipse-temurin-17
+  order_consumer_test_script: |
+    cd order-consumer
+    mvn test
+  customer_consumer_test_script: |
+    cd customer-consumer
+    mvn test
+  address_provider_test_script: |
+    cd address-provider
+    mvn test
+
+macos_arm_task:
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+  setup_script:
+    brew install maven
+  order_consumer_test_script: |
+    cd order-consumer
+    mvn test
+  customer_consumer_test_script: |
+    cd customer-consumer
+    mvn test
+  address_provider_test_script: |
+    cd address-provider
+    mvn test 
